@@ -1,0 +1,98 @@
+//string userName = Environment.UserName;
+//Console.WriteLine(userName);
+int age = 6;
+int currentMonth = DateTime.Now.Month;
+
+// && : and || : ou != : not
+// if !value startwith(T) if value startwith(T)
+
+/*uint ageU = 26;             // pas de négatif, > 0 donc - mémoire
+int age = 26;               // négatif possible + mémoire
+float ageFloat = 26.0F;     // float precision 7 chiffres - mémoire mais rajouter F
+double ageDouble = 26.00;   // double precision 15 chiffres + mémoire mais pas de F
+string chain = "salut";
+bool isTrue = true;
+Console.WriteLine(chain + " " + age);*/
+
+if (age < 12) 
+{
+    Console.WriteLine("Vous êtes un enfant");
+} else if (age < 19) 
+{
+    Console.WriteLine("Vous êtes un adolescent");
+} else if (age <= 18)
+{
+    Console.WriteLine("Vous êtes un adolescent");
+} else if (age > 60)
+{
+    Console.WriteLine("Vous êtes une personne âgée");
+} else
+{
+    Console.WriteLine("Vous êtes un adulte");
+}
+
+if (currentMonth > 0 && currentMonth < 13)
+{
+
+    switch (currentMonth)
+    {
+        case < 4:
+            Console.WriteLine("Trimestre 1");
+            break;
+        case < 7:
+            Console.WriteLine("Trimestre 2");
+            break;
+        case < 10:
+            Console.WriteLine("Trimestre 3");
+            break;
+        default:
+            Console.WriteLine("Trimestre 4");
+            break ;
+
+    }
+} else
+{
+        Console.WriteLine("Erreur de valeur pour le mois (inférieur à 0 ou supérieur à 12)");
+}
+
+bool found = false;
+int ageSecret = 21;
+int userInputInt = 0;
+Console.WriteLine("Devine mon âge :");
+bool perdu = false;
+
+
+
+do
+{
+    for (int i = 1; i < 11; i++)
+    {
+        string? userInput = Console.ReadLine();
+        userInputInt = Int32.Parse(userInput);
+
+        if (ageSecret == userInputInt)
+        {
+            Console.WriteLine("Trouvé !, en " + i + " tentative(s)");
+            found = true;
+            i = 12;
+        }
+        else if (ageSecret > userInputInt)
+        {
+            Console.WriteLine("C'est plus! essaie encore, tentative numéro " + i);
+        }
+        else if (ageSecret < userInputInt)
+        {
+            Console.WriteLine("C'est moins! essaie encore, tentative numéro " + i);
+        }
+    if (i == 10)
+        {
+            found = true;
+            perdu = true;
+        }
+    }
+}
+while (!found);
+if (perdu)
+{
+    Console.WriteLine("Perdu, plus d'essais");
+}
